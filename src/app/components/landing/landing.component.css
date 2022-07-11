@@ -1,16 +1,3 @@
-@import "~bootstrap/dist/css/bootstrap.css";
-body {
-    background-color: #eee;
-}
-
-.navbar {
-    background-color: #430DA4;
-}
-
-.navbar-brand {
-    color: #F8E8C9;
-}
-
 
 .gradient-custom-2 {
     /* fallback for old browsers */
