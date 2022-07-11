@@ -1,3 +1,4 @@
+import { User } from './../models/users';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,11 +6,33 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent {
+
+
+  user: User= new User(0, "", "", "", "", "");
+
+  displayStyle = "none"
 
   constructor() { }
 
-  ngOnInit(): void {
+  printUser() {
+
+    console.log(this.user);
+    this.closePopup();
   }
+
+
+  openPopup() {
+
+    this.displayStyle = "block";
+
+  }
+
+  closePopup() {
+
+    this.displayStyle = "none"
+
+  }
+
 
 }
