@@ -15,7 +15,62 @@
 
                                 </div>
 
+                                <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Registration</h4>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <div class="form-group">
+                                                    <label for="firstName">First Name</label>
+                                                    <input [(ngModel)]="user.firstName" name="first" type="text"
+                                                        class="form-control" id="firstName" placeholder="John">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="lastName">Last Name</label>
+                                                    <input [(ngModel)]="user.lastName" name="last" type="text"
+                                                        class="form-control" id="lastName" placeholder="Smith">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="username">Username</label>
+                                                    <input [(ngModel)]="user.username" name="username" type="text"
+                                                        class="form-control" id="username"
+                                                        placeholder="Enter a username">
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label for="email">Email address</label>
+                                                    <input [(ngModel)]="user.email" name="email" type="email"
+                                                        class="form-control" id="exampleInputEmail1"
+                                                        aria-describedby="emailHelp" placeholder="JohnSmith@gmail.com">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="password">Password</label>
+                                                    <input [(ngModel)]="user.password" name="password" type="password"
+                                                        class="form-control" id="password" placeholder="Password">
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-danger" (click)="closePopup()">
+                                                    Cancel
+                                                  </button>
+                                                  <button type="button" class="btn btn-primary btn-block fa-lg gradient-custom-2" (click)="printUser()">Register</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
                                 <form>
+
                                     <p>Please login to your account</p>
                                     <br />
                                     <div class="form-outline mb-4">
@@ -37,7 +92,8 @@
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">Don't have an account? </p>
 
-                                        <button id="register" type="button" class="btn btn-outline-danger">Create
+                                        <button id="register" type="button" class="btn btn-outline-danger"
+                                            (click)="openPopup()">Create
                                             new</button>
                                     </div>
 
