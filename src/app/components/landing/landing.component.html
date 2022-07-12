@@ -1,4 +1,9 @@
 <!-- login form div -->
+
+<!-- Register modal -->
+<app-register-modal></app-register-modal>
+
+
 <section class="gradient-form">
     <div class="container py-sm-3 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -14,49 +19,6 @@
                                     <h4 class="mt-1 mb-5 pb-1">SWAPI Game</h4>
 
                                 </div>
-
-                                <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Registration</h4>
-                                            </div>
-                                            <div class="modal-body">
-
-
-                                                <div class="form-group">
-                                                    <label for="username">Username</label>
-                                                    <input [(ngModel)]="user.username" name="username" type="text"
-                                                        class="form-control" id="username"
-                                                        placeholder="Enter a username">
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <label for="email">Email address</label>
-                                                    <input [(ngModel)]="user.email" name="email" type="email"
-                                                        class="form-control" id="exampleInputEmail1"
-                                                        aria-describedby="emailHelp" placeholder="JohnSmith@gmail.com">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="password">Password</label>
-                                                    <input [(ngModel)]="user.password" name="password" type="password"
-                                                        class="form-control" id="password" placeholder="Password">
-                                                </div>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-danger" (click)="closePopup()">
-                                                    Cancel
-                                                  </button>
-                                                  <button type="button" class="btn btn-primary btn-block fa-lg gradient-custom-2" (click)="registerUser()">Register</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
 
                                 <form>
 
@@ -82,7 +44,7 @@
                                         <p class="mb-0 me-2">Don't have an account? </p>
 
                                         <button id="register" type="button" class="btn btn-outline-danger"
-                                            (click)="openPopup()">Create
+                                            (click)="showModal()">Create
                                             new</button>
                                     </div>
 

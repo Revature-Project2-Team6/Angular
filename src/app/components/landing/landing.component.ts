@@ -1,7 +1,6 @@
-import { UserService } from 'src/app/services/user.service';
-import { ClientMessage } from 'src/app/models/client-message';
-import { User } from 'src/app/models/users';
-import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
+import { RegisterModalComponent } from './../register-modal/register-modal.component';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-landing',
@@ -11,46 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class LandingComponent {
 
 
-  user: User= new User(0, "", "", "");
-  clientMessage: ClientMessage = new ClientMessage('');
+  constructor(public appComponent: AppComponent) { }
 
-  displayStyle = "none"
 
-  constructor(private userService: UserService) { }
-
-  printUser() {
-
-    console.log(this.user);
-    this.closePopup();
+  showModal() {
+    this.appComponent.registerModalVisibility = "block" 
   }
 
-
-  openPopup() {
-
-    this.displayStyle = "block";
-
-  }
-
-  closePopup() {
-
-    this.displayStyle = "none"
-
-  }
-
-  registerUser(): void {
-
-    this.userService.registerUser(this.user)
-    .subscribe(
-      data => this.clientMessage.message = `Successfully registered ${data.username}`,
-      error => this.clientMessage.message = `Something went wrong. Error ${error}`
-    )
-
-
-  }
-
-  findAllUsers(): void {
-    console.log(this.userService.findAllUsers());
-  }
 
 
 }
