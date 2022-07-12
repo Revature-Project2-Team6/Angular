@@ -1,0 +1,31 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+
+
+.card-group{
+    margin-top: 15%;
+    width: 100%;
+    
+    
+}
+.card-title, .card-footer, .card-body{
+    text-align: center;
+}
+.card-img-top {
+    height: 15vw;
+    object-fit: cover;
+}
+.card{
+    max-width: 30rem;
+    
+}
+
+/* general stuff */
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
