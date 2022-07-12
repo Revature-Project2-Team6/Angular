@@ -1,6 +1,6 @@
-import { UserService } from './../services/user.service';
-import { ClientMessage } from './../models/client-message';
-import { User } from './../models/users';
+import { UserService } from 'src/app/services/user.service';
+import { ClientMessage } from 'src/app/models/client-message';
+import { User } from 'src/app/models/users';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
