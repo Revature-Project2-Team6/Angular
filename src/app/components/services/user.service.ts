@@ -4,13 +4,12 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { catchError, Observable, throwError } from 'rxjs';
 import { User } from '../models/users';
 
-
-const userUrl = url + `/users`;
-
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  userUrl: string = url + `/users`;
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -21,9 +20,17 @@ export class UserService {
 
   registerUser(user: User): Observable<User> {
 
-    return this.http.post<User>(`${userUrl}/users`, user, this.httpOptions)
+    console.log(`Attempting url: ${this.userUrl}`);
+
+    return this.http.post<User>(`${this.userUrl}`, user, this.httpOptions)
     .pipe(catchError(this.handleError))
 
+  }
+
+  findAllUsers(): Observable<User[]> {
+
+    return this.http.get<User[]>(this.userUrl, this.httpOptions)
+    .pipe(catchError(this.handleError));
   }
 
   private handleError(httpError: HttpErrorResponse) {

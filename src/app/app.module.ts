@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterModalComponent } from './components/register-modal/register-modal.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     AppComponent,
     NavComponent,
     LandingComponent,
+    RegisterModalComponent,
     HomepageComponent
   ],
   imports: [
