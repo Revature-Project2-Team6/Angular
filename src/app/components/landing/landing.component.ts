@@ -48,5 +48,9 @@ export class LandingComponent {
 
   }
 
+  findAllUsers(): void {
+    console.log(this.userService.findAllUsers());
+  }
+
 
 }
