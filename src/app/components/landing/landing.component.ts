@@ -1,3 +1,5 @@
+import { UserService } from './../services/user.service';
+import { ClientMessage } from './../models/client-message';
 import { User } from './../models/users';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,11 +11,12 @@ import { Component, OnInit } from '@angular/core';
 export class LandingComponent {
 
 
-  user: User= new User(0, "", "", "", "", "");
+  user: User= new User(0, "", "", "");
+  clientMessage: ClientMessage = new ClientMessage('');
 
   displayStyle = "none"
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   printUser() {
 
@@ -31,6 +34,17 @@ export class LandingComponent {
   closePopup() {
 
     this.displayStyle = "none"
+
+  }
+
+  registerUser(): void {
+
+    this.userService.registerUser(this.user)
+    .subscribe(
+      data => this.clientMessage.message = `Successfully registered ${data.username}`,
+      error => this.clientMessage.message = `Something went wrong. Error ${error}`
+    )
+
 
   }
 
