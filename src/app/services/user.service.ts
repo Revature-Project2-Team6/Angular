@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { url } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { User } from '../models/users';
+import { User } from 'src/app/models/users';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +20,8 @@ export class UserService {
 
   registerUser(user: User): Observable<User> {
 
-    console.log(`Attempting url: ${this.userUrl}`);
 
-    return this.http.post<User>(`${this.userUrl}`, user, this.httpOptions)
+    return this.http.post<User>(`${this.userUrl}/add`, user, this.httpOptions)
     .pipe(catchError(this.handleError))
 
   }
