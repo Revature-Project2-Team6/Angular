@@ -9,4 +9,6 @@ export class AppComponent {
   title = 'ProjectStarWars';
   public registerModalVisibility: string = "";
   public isGalaxyLoaded: boolean = false;
+  public isLoggedIn = false;
+  test = "";
 }
