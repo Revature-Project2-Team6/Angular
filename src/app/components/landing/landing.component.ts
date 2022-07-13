@@ -10,11 +10,16 @@ import { Component} from '@angular/core';
 export class LandingComponent {
 
 
+
   constructor(public appComponent: AppComponent) { }
 
 
   showModal() {
     this.appComponent.registerModalVisibility = "block" 
+  }
+
+  showGalaxy() {
+    this.appComponent.isGalaxyLoaded = true;
   }
 
 

@@ -1,4 +1,25 @@
 <!--this will have the background of a galaxy map and have one(multiple for stretch) planet(tatooine) visible
     the player will be able to select the planet and that will take you to the planet-level component-->
 
-<p>planet-select works!</p>
+
+    <div class="bg-image" 
+     style="background-image: url('../../../assets/galaxy.png');
+            height: 100vh;
+            background-color: black;
+            background-repeat: no-repeat;
+            background-size: 100%;">
+
+            <div class="tatooine">
+                <img (click)="test()" [ngStyle]="{'width': tatooine.diameter + 'px'}" class ="planet" src="../../../assets/tatooine.png" alt="tatooine">
+            </div>
+            
+            <div class="hoth">
+                <img (click)="test()" [ngStyle]="{'width': hoth.diameter + 'px'}" class ="planet" src="../../../assets/Hoth.png" alt="hoth">
+            </div>
+            <div class="endor">
+                <img (click)="test()" [ngStyle]="{'width': hoth.diameter + 'px'}" class ="planet" src="../../../assets/Endor.png" alt="endor">
+            </div>
+
+        </div>
+        
+

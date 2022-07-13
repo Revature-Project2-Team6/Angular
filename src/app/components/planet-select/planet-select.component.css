@@ -1,0 +1,30 @@
+.planet {
+    transition: transform .2s;
+    
+}
+
+.planet:hover {
+    transform: scale(1.5);
+}
+
+.tatooine {
+    text-align: center;
+    position: relative;
+    left: 22%;
+    top: 55%;
+}
+
+.hoth {
+    text-align: center;
+    position: relative;
+    left: 22%;
+    bottom: 10%;
+}
+
+.endor {
+    text-align: center;
+    position: relative;
+    right: 25%;
+    top: 15%;
+}
+
