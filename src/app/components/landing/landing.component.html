@@ -39,7 +39,9 @@
                                             (click)="logIn()"
                                             type="button">Log
                                             in</button>
+                                            <p *ngIf="this.errorMsg" class="alert alert-danger mb-0">{{ errorMsg }}</p>
                                     </div>
+
 
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">Don't have an account? </p>

@@ -14,6 +14,7 @@ import { RegisterModalComponent } from './../register-modal/register-modal.compo
 export class LandingComponent {
 
   user = new User(0, "", "", "");
+  errorMsg = "";
 
   constructor(public appComponent: AppComponent, public authServ: AuthService) { }
 
@@ -34,6 +35,7 @@ export class LandingComponent {
         this.user.password = "";
       },
       (error) => {
+        this.errorMsg = "Login failed. Please try again."
         this.user.password = "";
       }
     )
