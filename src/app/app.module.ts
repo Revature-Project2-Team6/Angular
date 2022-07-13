@@ -9,6 +9,9 @@ import { LandingComponent } from './components/landing/landing.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterModalComponent } from './components/register-modal/register-modal.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { PlanetSelectComponent } from './planet-select/planet-select.component';
+import { PlanetLevelSelectComponent } from './components/planet-level-select/planet-level-select.component';
+import { CombatComponent } from './components/combat/combat.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     NavComponent,
     LandingComponent,
     RegisterModalComponent,
-    HomepageComponent
+    HomepageComponent,
+    PlanetSelectComponent,
+    PlanetLevelSelectComponent,
+    CombatComponent
   ],
   imports: [
     BrowserModule,
