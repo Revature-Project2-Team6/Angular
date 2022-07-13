@@ -3,6 +3,8 @@
 <!-- Register modal -->
 <app-register-modal></app-register-modal>
 
+<app-planet-select *ngIf="appComponent.isGalaxyLoaded"></app-planet-select>
+
 
 <section class="gradient-form">
     <div class="container py-sm-3 h-100">
@@ -39,6 +41,12 @@
                                             (click)="logIn()"
                                             type="button">Log
                                             in</button>
+
+                                            <br>
+
+                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                                        type="button" (click)="showGalaxy()">Show Galaxy</button>
+
                                             <p *ngIf="this.errorMsg" class="alert alert-danger mb-0">{{ errorMsg }}</p>
                                     </div>
 

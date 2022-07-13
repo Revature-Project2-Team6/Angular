@@ -23,6 +23,11 @@ export class LandingComponent {
     this.appComponent.registerModalVisibility = "block"
   }
 
+  showGalaxy() {
+    this.appComponent.isGalaxyLoaded = true;
+  }
+
+
   logIn(): void {
     this.authServ.login(this.user.username, this.user.password).subscribe(
       (response) => {
