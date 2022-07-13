@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CombatComponent implements OnInit {
 
-  characterSelected: boolean = false;
   statsUpdated: boolean = false;
   combatCompleted: boolean = false;
   constructor(private player: Character, private npc:Character) { }

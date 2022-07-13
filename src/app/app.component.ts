@@ -1,3 +1,4 @@
+import { Character } from './models/character';
 import { Component } from '@angular/core';
 
 @Component({
