@@ -1,5 +1,12 @@
 <!-- homebar has home icon, name of app, and (possibly) profile dropdown(?) -->
 <!-- As a link -->
-<nav class="navbar">
-    <a class="navbar-brand" href="#">SWAPI Game</a>
+<nav class="navbar navbar-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand">SWAPI Game</span>
+    <ul class="navbar-nav ms-auto pe-3">
+      <li *ngIf="appComponent.isLoggedIn" class="nav-item">
+        <a href="#" (click)="logOut()" class="nav-link">Log out</a>
+      </li>
+    </ul>
+  </div>
 </nav>
