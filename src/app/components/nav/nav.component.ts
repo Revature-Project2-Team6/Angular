@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(public appComponent: AppComponent) { }
 
   ngOnInit(): void {
+  }
+
+  logOut() {
+    if (this.appComponent.isLoggedIn && sessionStorage.getItem("token")) {
+      sessionStorage.removeItem("token");
+      this.appComponent.isLoggedIn = false;
+    }
   }
 
 }
