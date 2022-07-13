@@ -1,6 +1,10 @@
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { ClientMessage } from 'src/app/models/client-message';
+import { User } from 'src/app/models/users';
 import { AppComponent } from 'src/app/app.component';
+import { AuthService } from 'src/app/services/auth.service';
 import { RegisterModalComponent } from './../register-modal/register-modal.component';
-import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-landing',
@@ -9,14 +13,27 @@ import { Component} from '@angular/core';
 })
 export class LandingComponent {
 
+  user = new User(0, "", "", "");
 
-  constructor(public appComponent: AppComponent) { }
+  constructor(public appComponent: AppComponent, public authServ: AuthService) { }
 
 
   showModal() {
-    this.appComponent.registerModalVisibility = "block" 
+    this.appComponent.registerModalVisibility = "block"
   }
 
+  logIn(): void {
+    this.authServ.login(this.user.username, this.user.password).subscribe(
+      (response) => {
+        const token = response.headers.get("auth-token");
+        sessionStorage.setItem("token", token);
 
-
+        this.user.username = "";
+        this.user.password = "";
+      },
+      (error) => {
+        this.user.password = "";
+      }
+    )
+  }
 }
