@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ProjectStarWars';
   public registerModalVisibility: string = "";
+  public isLoggedIn = false;
   test = "";
 }

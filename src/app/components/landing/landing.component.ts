@@ -28,6 +28,8 @@ export class LandingComponent {
         const token = response.headers.get("auth-token");
         sessionStorage.setItem("token", token);
 
+        this.appComponent.isLoggedIn = true;
+
         this.user.username = "";
         this.user.password = "";
       },
