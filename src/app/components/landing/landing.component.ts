@@ -1,7 +1,10 @@
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { ClientMessage } from 'src/app/models/client-message';
 import { User } from 'src/app/models/users';
-import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { RegisterModalComponent } from './../register-modal/register-modal.component';
 
 @Component({
   selector: 'app-landing',
@@ -10,47 +13,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent {
 
+  user = new User(0, "", "", "");
+  errorMsg = "";
 
-  user: User= new User(0, "", "", "");
-  clientMessage: ClientMessage = new ClientMessage('');
+  constructor(public appComponent: AppComponent, public authServ: AuthService) { }
 
-  displayStyle = "none"
 
-  constructor(private userService: UserService) { }
+  showModal() {
+    this.appComponent.registerModalVisibility = "block"
+  }
 
-  printUser() {
-
-    console.log(this.user);
-    this.closePopup();
+  showGalaxy() {
+    this.appComponent.isGalaxyLoaded = true;
   }
 
 
-  openPopup() {
+  logIn(): void {
+    this.authServ.login(this.user.username, this.user.password).subscribe(
+      (response) => {
+        const token = response.headers.get("auth-token");
+        sessionStorage.setItem("token", token);
 
-    this.displayStyle = "block";
+        this.appComponent.isLoggedIn = true;
 
-  }
-
-  closePopup() {
-
-    this.displayStyle = "none"
-
-  }
-
-  registerUser(): void {
-
-    this.userService.registerUser(this.user)
-    .subscribe(
-      data => this.clientMessage.message = `Successfully registered ${data.username}`,
-      error => this.clientMessage.message = `Something went wrong. Error ${error}`
+        this.user.username = "";
+        this.user.password = "";
+      },
+      (error) => {
+        this.errorMsg = "Login failed. Please try again."
+        this.user.password = "";
+      }
     )
-
-
   }
-
-  findAllUsers(): void {
-    console.log(this.userService.findAllUsers());
-  }
-
-
 }
