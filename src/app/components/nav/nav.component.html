@@ -2,7 +2,10 @@
 <!-- As a link -->
 <nav class="navbar navbar-dark">
   <div class="container-fluid">
-    <span class="navbar-brand">SWAPI Game</span>
+    <!-- if logged in, this span is a link to the homepage. otherwise, it's nothing-->
+    <a *ngIf="appComponent.isLoggedIn" routerLink="/homepage" class="navbar-brand">SWAPI Game</a>
+    <a *ngIf="!appComponent.isLoggedIn" class="navbar-brand">SWAPI Game</a>
+
     <ul class="navbar-nav ms-auto pe-3">
       <li *ngIf="appComponent.isLoggedIn" class="nav-item">
         <a href="#" (click)="logOut()" class="nav-link">Log out</a>
