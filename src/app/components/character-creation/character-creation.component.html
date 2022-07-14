@@ -1,0 +1,51 @@
+<div class="container py-5">
+
+
+    <div class="card">
+        <h2 class="card-header text-center">Character Creation!</h2>
+        
+        <div class="card-body">
+            <p class="text-center">Create your custom character! You will be able to see all characters you create, and be able to play as any of them, all based off of the Star Wars universe!</p>
+            <!-- split into half: one long image on left
+            and then the options to customize the char on the right -->
+            <div class="row">
+                <div class="col-4">
+                    <!-- img col here-->
+                    <!-- set img height in this component's css file -->
+                    <!-- ts file selects assets/{name}.jpg-->
+
+                   <img class="rounded mx-auto d-block img-thumbnail" id="img-char" src="assets/{{image}}.jpg" alt="character here">
+                </div>
+                <div class="col-8">
+                    <!-- form for character here -->
+                    <form spellcheck="false">
+                        <!-- character name input -->
+                        <div class="form-group">
+                            <label for="name">Character Name</label>
+                            <input type="text" autocomplete="off" aria-describedby="nameHelp" id="name" class="form-control"
+                                placeholder="Enter character name...">
+                            <small class="form-text text-muted" id="nameHelp">Enter your custom character's name here.</small>
+                        </div>
+                        <br>
+                        <!-- species/ type dropdown input here -->
+                        <div class="form-group">
+                            <label for="species-input">Species/Type</label>
+                            <select (change)="onChange(t.value)" #t id="species-input" class="form-control dropdown-toggle">
+                                <option>stormtrooper1</option>
+                                <option>stormtrooper2</option>
+                                <option>stormtrooper3</option>
+                            </select>
+                            <small class="form-text text-muted">Select your character's species/type.</small>
+                        </div>
+                        <br>
+                        <a id="character-btn" class="btn btn-primary gradient-custom-2 mt-auto">Create character!</a>
+
+                    </form>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

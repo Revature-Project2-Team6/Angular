@@ -12,6 +12,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { PlanetSelectComponent } from './components/planet-select/planet-select.component';
 import { PlanetLevelSelectComponent } from './components/planet-level-select/planet-level-select.component';
 import { CombatComponent } from './components/combat/combat.component';
+import { CharacterCreationComponent } from './components/character-creation/character-creation.component';
+import { InfoMenuComponent } from './components/info-menu/info-menu.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CombatComponent } from './components/combat/combat.component';
     HomepageComponent,
     PlanetSelectComponent,
     PlanetLevelSelectComponent,
-    CombatComponent
+    CombatComponent,
+    CharacterCreationComponent,
+    InfoMenuComponent
   ],
   imports: [
     BrowserModule,
