@@ -12,4 +12,5 @@ export class AppComponent {
   public isGalaxyLoaded: boolean = false;
   public isLoggedIn = false;
   test = "";
+
 }

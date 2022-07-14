@@ -1,20 +1,31 @@
-import { Character } from './../../models/character';
+import { Character, Species, Stats, Skill } from './../../models/character';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/users';
 
 @Component({
   selector: 'app-combat',
   templateUrl: './combat.component.html',
   styleUrls: ['./combat.component.css']
 })
-export class CombatComponent implements OnInit {
+export class CombatComponent{
 
   statsUpdated: boolean = false;
   combatCompleted: boolean = false;
-  constructor(private player: Character, private npc:Character) { }
+  player: Character = new Character(0, '',
+  new Species(0, '', ''), '',
+  new Stats(0, 0, 0, 0, 0, 0, 0, 0, 0),
+  [new Skill(0, '', '', 0, '')],
+  new User(0, '', '', ''));
+
+  npc: Character = new Character(0, '',
+  new Species(0, '', ''), '',
+  new Stats(0, 0, 0, 0, 0, 0, 0, 0, 0),
+  [new Skill(0, '', '', 0, '')],
+  new User(0, '', '', ''));
+  constructor() { }
 
   winner: string = '';
-  ngOnInit(): void {
-  }
+
 
   startFight(): void{
     // display the stats

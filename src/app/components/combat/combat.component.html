@@ -1,7 +1,6 @@
 <!-- this will first display the players character list to select who they want to use to fight with
     then it will go into the actual combat calculation steps shown in the trello combat image-->
 
-<p>combat works!</p>
 <!--Background will be the planet color? or maybe sand for tatooine?-->
 
 <!--Card left (NPC)                      Card right(Player)
@@ -22,13 +21,33 @@
   </div>
 
   <!-- ill make this look better later-->
-  <div class="backgroundContainer">
-    <div class="cardContainer">
-      <div class="npcCard">
-
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card bf-dark" id="npcCard">
+          <img src="${{npc.imageUrl}}" alt="npcImage" class="card-img-top">
+          <div class="card-body">
+            <h3 class="card-title">{{npc.name}}</h3>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">ATK: {{npc.stats.str}}</li>
+            <li class="list-group-item">FP: {{npc.stats.fp}}</li>
+            <li class="list-group-item">DEF: {{npc.stats.def}}</li>
+          </ul>
+        </div>
       </div>
-      <div class="playerCard">
-
+      <div class="col-lg-6">
+        <div class="card" id="playerCard">
+          <img src="${{player.imageUrl}}" alt="npcImage" class="card-img-top">
+          <div class="card-body">
+            <h3 class="card-title">{{player.name}}</h3>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">ATK: {{player.stats.str}}</li>
+            <li class="list-group-item">FP: {{player.stats.fp}}</li>
+            <li class="list-group-item">DEF: {{player.stats.def}}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
