@@ -41,32 +41,32 @@ export class Species {
 export class Stats {
 
   id: number;
-  def: number;
-  dex: number;
-  exp: number;
-  fp: number;
+  defense: number;
+  dextarity: number;
+  experience: number;
+  forcePower: number;
   health: number;
-  lvl: number;
-  str: number;
+  level: number;
+  strength: number;
 
   constructor(
-    id: number, 
-    def: number, 
-    dex: number, 
-    exp: number, 
-    fp: number, 
-    health: number, 
-    lvl: number, 
-    str: number, 
+    id: number,
+    defense: number,
+    dextarity: number,
+    experience: number,
+    forcePower: number,
+    health: number,
+    level: number,
+    strength: number,
 ) {
     this.id = id
-    this.def = def
-    this.dex = dex
-    this.exp = exp
-    this.fp = fp
+    this.defense = defense
+    this.dextarity = dextarity
+    this.experience = experience
+    this.forcePower = forcePower
     this.health = health
-    this.lvl = lvl
-    this.str = str
+    this.level = level
+    this.strength = strength
   }
 }
 
