@@ -1,15 +1,15 @@
+import { Character } from './../models/character';
 import { Injectable } from '@angular/core';
 import { url } from 'src/environments/environment';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { User } from 'src/app/models/users';
+import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class CharacterService {
 
-  userUrl: string = url + `/users`;
+  charUrl: string = url + `/characters`;
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -17,17 +17,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  registerCharacter(character: Character): Observable<Character> {
 
-  registerUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.userUrl}/add`, user, this.httpOptions)
+    return this.http.post<Character>(`${this.charUrl}/add`, character, this.httpOptions)
     .pipe(catchError(this.handleError))
-
-  }
-
-  findAllUsers(): Observable<User[]> {
-
-    return this.http.get<User[]>(this.userUrl, this.httpOptions)
-    .pipe(catchError(this.handleError));
   }
 
   private handleError(httpError: HttpErrorResponse) {

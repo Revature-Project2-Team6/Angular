@@ -1,15 +1,15 @@
+import { Observable, catchError, throwError } from 'rxjs';
+import { Species } from './../models/character';
+import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { url } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import { url } from 'src/environments/environment';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
-import { User } from 'src/app/models/users';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class SpeciesService {
 
-  userUrl: string = url + `/users`;
+  speciesUrl: string = url + `/species`;
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -17,17 +17,17 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  registerSpecies(species: Species): Observable<Species> {
 
-  registerUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.userUrl}/add`, user, this.httpOptions)
+    return this.http.post<Species>(this.speciesUrl, species, this.httpOptions)
     .pipe(catchError(this.handleError))
-
   }
 
-  findAllUsers(): Observable<User[]> {
+  findSpecies(): Observable<Species[]> {
 
-    return this.http.get<User[]>(this.userUrl, this.httpOptions)
-    .pipe(catchError(this.handleError));
+    return this.http.get<Species[]>(`${this.speciesUrl}`, this.httpOptions)
+    .pipe(catchError(this.handleError))
+
   }
 
   private handleError(httpError: HttpErrorResponse) {
@@ -43,7 +43,6 @@ export class UserService {
       body was: ${httpError.error};
       `)
     }
-
     return throwError(() => new Error('Something really bad happened'));
   }
 }

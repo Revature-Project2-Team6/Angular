@@ -1,3 +1,4 @@
+import { User } from './models/users';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,5 +11,5 @@ export class AppComponent {
   public registerModalVisibility: string = "";
   public isGalaxyLoaded: boolean = false;
   public isLoggedIn = false;
-  test = "";
+  public loggedInUser: User = new User(0, '', '', '');
 }

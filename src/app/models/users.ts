@@ -1,3 +1,5 @@
+import { Character } from "./character";
+
 export class User {
 
     id: number;
@@ -9,7 +11,7 @@ export class User {
     id: number, 
     username: string, 
     password: string, 
-    email: string
+    email: string,
 ) {
     this.id = id
     this.username = username
