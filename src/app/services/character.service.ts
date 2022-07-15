@@ -23,6 +23,11 @@ export class CharacterService {
     .pipe(catchError(this.handleError))
   }
 
+  getCharactersByUserId(userId: number): Observable<Character[]> {
+    return this.http.get<Character[]>(`${this.charUrl}/find/${userId}`, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(httpError: HttpErrorResponse) {
 
     if (httpError.error instanceof ErrorEvent) {
@@ -39,4 +44,5 @@ export class CharacterService {
 
     return throwError(() => new Error('Something really bad happened'));
   }
+
 }

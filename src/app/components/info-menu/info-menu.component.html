@@ -4,41 +4,39 @@
       <section class="card">
         <h4 class="card-header mb-0">Your characters</h4>
         <div class="card-body">
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+          <div *ngFor="let char of characters" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
             <div class="col">
               <div class="card">
-                <div class="card-img-top">Image here</div>
-                <ul class="list-group list-group-flush small">
-                  <li class="list-group-item h5 mb-0">Character 1</li>
-                  <li class="list-group-item">Species: Human</li>
-                  <li class="list-group-item">ATK: 0</li>
-                  <li class="list-group-item">DEF: 0</li>
-                  <li class="list-group-item">FP: 0</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <div class="card-img-top">Image here</div>
-                <ul class="list-group list-group-flush small">
-                  <li class="list-group-item h5 mb-0">Character 2</li>
-                  <li class="list-group-item">Species: Human</li>
-                  <li class="list-group-item">ATK: 0</li>
-                  <li class="list-group-item">DEF: 0</li>
-                  <li class="list-group-item">FP: 0</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <div class="card-img-top">Image here</div>
-                <ul class="list-group list-group-flush small">
-                  <li class="list-group-item h5 mb-0">Character 3</li>
-                  <li class="list-group-item">Species: Human</li>
-                  <li class="list-group-item">ATK: 0</li>
-                  <li class="list-group-item">DEF: 0</li>
-                  <li class="list-group-item">FP: 0</li>
-                </ul>
+                <img src="{{ char.imageUrl }}" alt="Image of {{ char.name }}" class="card-img-top">
+                <div class="list-group list-group-flush small">
+                  <div class="list-group-item h5 mb-0">{{ char.name }}</div>
+                  <div class="list-group-item">Species: {{ char.species.speciesName.charAt(0).toUpperCase() }}{{ char.species.speciesName.substr(1) }}</div>
+                  <div class="list-group-item">Level {{ char.stats.level }} ({{ char.stats.experience }} EXP)</div>
+                  <div class="list-group-item">Health: {{ char.stats.health }} </div>
+                  <div class="list-group-item">
+                    <div class="row">
+                      <div class="col-6 col-md-4 col-lg-6">
+                        <abbr title="Force Power">FP</abbr>: {{ char.stats.forcePower }}
+                      </div>
+                      <div class="col-6 col-md-4 col-lg-6">
+                        <abbr title="Defense">DEF</abbr>: {{ char.stats.defense }}
+                      </div>
+                      <div class="col-6 col-md-4 col-lg-6">
+                        <abbr title="Strength">STR</abbr>: {{ char.stats.strength }}
+                      </div>
+                      <div class="col-6 col-md-4 col-lg-6">
+                        <abbr title="Dexterity">DEX</abbr>: {{ char.stats.dextarity }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-group-item character-actions">
+                    <div class="btn-group btn-group-sm">
+                      <!-- Add action buttons here -->
+                      <a class="btn btn-outline-primary">Edit</a>
+                      <a class="btn btn-outline-danger">Delete</a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
