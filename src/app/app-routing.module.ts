@@ -1,3 +1,4 @@
+import { PlayPageComponent } from './components/play-page/play-page.component';
 import { InfoMenuComponent } from './components/info-menu/info-menu.component';
 import { CharacterCreationComponent } from './components/character-creation/character-creation.component';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ const routes: Routes = [
   {path: "character", component: CharacterCreationComponent},
   {path: "info", component: InfoMenuComponent},
   {path: "planet", component: PlanetSelectComponent},
+  {path: "play", component: PlayPageComponent},
    // a WildCard Route is used to handle unknown paths (ALWAYS goes last)
    {path: '**', component:HomepageComponent}
 ];
