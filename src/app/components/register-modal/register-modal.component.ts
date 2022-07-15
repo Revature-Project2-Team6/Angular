@@ -39,8 +39,8 @@ export class RegisterModalComponent {
 
     this.userService.registerUser(this.user)
     .subscribe(
-      data => this.clientMessage.message = `Successfully registered ${data.username}`,
-      error => this.clientMessage.message = `Something went wrong. Error ${error}`
+      data => this.clientMessage.message = `Successfully registered ${data.username}, you may now log in!`,
+      error => this.clientMessage.message = `Unable to register. Check that all constraints have been met.`
     )
 
 

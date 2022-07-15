@@ -36,6 +36,7 @@ export class LandingComponent {
         sessionStorage.setItem("token", token);
 
         this.appComponent.isLoggedIn = true;
+        this.appComponent.loggedInUser.id = response.headers.get("user-id");
 
         this.user.username = "";
         this.user.password = "";

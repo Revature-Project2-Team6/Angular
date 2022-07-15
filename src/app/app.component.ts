@@ -1,3 +1,4 @@
+import { User } from './models/users';
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,4 +12,5 @@ export class AppComponent {
   public isGalaxyLoaded: boolean = false;
   public isLoggedIn = false;
   public userId = 0;
+  public loggedInUser: User = new User(0, '', '', '');
 }
