@@ -10,5 +10,5 @@ export class AppComponent {
   public registerModalVisibility: string = "";
   public isGalaxyLoaded: boolean = false;
   public isLoggedIn = false;
-  test = "";
+  public userId = 0;
 }

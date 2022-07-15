@@ -32,6 +32,11 @@ export class UserService {
     .pipe(catchError(this.handleError));
   }
 
+  getUserById(userId: number): Observable<User> {
+    return this.http.get<User>(`${this.userUrl}/${userId}`, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(httpError: HttpErrorResponse) {
 
     if (httpError.error instanceof ErrorEvent) {

@@ -31,6 +31,7 @@ export class LandingComponent {
   logIn(): void {
     this.authServ.login(this.user.username, this.user.password).subscribe(
       (response) => {
+        console.log(response.headers);
         const token = response.headers.get("auth-token");
         sessionStorage.setItem("token", token);
 
@@ -38,6 +39,9 @@ export class LandingComponent {
 
         this.user.username = "";
         this.user.password = "";
+
+        const id = response.headers.get("user-id");
+        this.appComponent.userId = id;
       },
       (error) => {
         this.errorMsg = "Login failed. Please try again."

@@ -52,11 +52,11 @@
           <form>
             <div class="form-row">
               <label for="username" class="form-label">Username</label>
-              <input type="text" id="username" placeholder="Enter a username" class="form-control">
+              <input [(ngModel)]="this.user.username" type="text" name="username" id="username" placeholder="Enter a username" class="form-control">
             </div>
             <div class="form-row mt-2">
               <label for="email" class="form-label">Email</label>
-              <input type="email" id="email" placeholder="johnsmith@gmail.com" class="form-control">
+              <input [(ngModel)]="this.user.email" type="email" name="email" id="email" placeholder="johnsmith@gmail.com" class="form-control">
             </div>
             <div class="form-row mt-2">
               <label for="currentPassword" class="form-label">Current password</label>
