@@ -35,8 +35,6 @@ export class PlanetSelectComponent implements OnInit {
         p.climate = obj.climate;
       })
     })
-
-    console.log(this.planets)
   }
 
   test() {

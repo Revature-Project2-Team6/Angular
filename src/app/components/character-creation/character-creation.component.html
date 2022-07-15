@@ -14,7 +14,7 @@
                     <!-- set img height in this component's css file -->
                     <!-- ts file selects assets/{name}.jpg-->
 
-                   <img class="rounded mx-auto d-block img-thumbnail" id="img-char" src="assets/{{image}}.jpg" alt="character here">
+                   <img class="rounded mx-auto d-block img-thumbnail" id="img-char" src="assets/{{image}}.png" alt="character here">
                 </div>
                 <div class="col-8">
                     <!-- form for character here -->
@@ -22,7 +22,7 @@
                         <!-- character name input -->
                         <div class="form-group">
                             <label for="name">Character Name</label>
-                            <input type="text" autocomplete="off" aria-describedby="nameHelp" id="name" class="form-control"
+                            <input [(ngModel)]="character.name" name="name" type="text" autocomplete="off" aria-describedby="nameHelp" id="name" class="form-control"
                                 placeholder="Enter character name...">
                             <small class="form-text text-muted" id="nameHelp">Enter your custom character's name here.</small>
                         </div>
@@ -31,14 +31,15 @@
                         <div class="form-group">
                             <label for="species-input">Species/Type</label>
                             <select (change)="onChange(t.value)" #t id="species-input" class="form-control dropdown-toggle">
-                                <option>stormtrooper1</option>
-                                <option>stormtrooper2</option>
-                                <option>stormtrooper3</option>
+                                <option>human</option>
+                                <option>twi'lek</option>
+                                <option>wookie</option>
+                                <option>hutt</option>
                             </select>
                             <small class="form-text text-muted">Select your character's species/type.</small>
                         </div>
                         <br>
-                        <a id="character-btn" class="btn btn-primary gradient-custom-2 mt-auto">Create character!</a>
+                        <button [disabled]="character.name === ''" routerLink="/homepage" (click)="createCharacter()" id="character-btn" class="btn btn-primary gradient-custom-2 mt-auto">Create character!</button>
 
                     </form>
                 </div>
