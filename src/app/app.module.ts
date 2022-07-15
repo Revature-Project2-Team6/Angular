@@ -14,6 +14,7 @@ import { PlanetLevelSelectComponent } from './components/planet-level-select/pla
 import { CombatComponent } from './components/combat/combat.component';
 import { CharacterCreationComponent } from './components/character-creation/character-creation.component';
 import { InfoMenuComponent } from './components/info-menu/info-menu.component';
+import { PlayPageComponent } from './components/play-page/play-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { InfoMenuComponent } from './components/info-menu/info-menu.component';
     PlanetLevelSelectComponent,
     CombatComponent,
     CharacterCreationComponent,
-    InfoMenuComponent
+    InfoMenuComponent,
+    PlayPageComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,6 @@ import { AppComponent } from 'src/app/app.component';
 import { Character, Species, Stats } from './../../models/character';
 import { Component, OnInit, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
 import { User } from 'src/app/models/users';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-character-creation',
