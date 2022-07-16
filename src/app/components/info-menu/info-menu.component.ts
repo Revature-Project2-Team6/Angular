@@ -14,21 +14,63 @@ export class InfoMenuComponent implements OnInit {
 
   user = new User(0, "", "", "");
   characters: Character[] = [];
+  currentPasswordField = "";
+  newPasswordField = "";
+  updateUserInfoStatus = "";
+  updateUserInfoStatusClass = "danger";
 
   constructor(public appComponent: AppComponent, public uServ: UserService, public cServ: CharacterService) { }
 
   ngOnInit(): void {
-    this.uServ.getUserById(this.appComponent.userId).subscribe(
+    this.uServ.getUserById(this.appComponent.loggedInUser.id).subscribe(
       (response) => {
-        this.user = response;
+        this.user = new User(response.id, response.username, response.password, response.email);
+        this.appComponent.loggedInUser = new User(response.id, response.username, response.password, response.email);
       }
     );
-    this.cServ.getCharactersByUserId(this.appComponent.userId).subscribe(
+    this.cServ.getCharactersByUserId(this.appComponent.loggedInUser.id).subscribe(
       (response) => {
         this.characters = response;
-        console.log(this.characters);
       }
     );
+  }
+
+  updateUserInfo(): void {
+    if (this.currentPasswordField) {
+      if (this.currentPasswordField !== this.appComponent.loggedInUser.password) {
+        this.updateUserInfoStatus = "Incorrect password. Please try again";
+        this.updateUserInfoStatusClass = "danger";
+        return;
+      }
+
+      if (this.newPasswordField) {
+        this.user.password = this.newPasswordField;
+      } else {
+        this.user.password = this.currentPasswordField
+      }
+
+      this.uServ.updateUser(this.user).subscribe({
+        next: (response) => {
+          this.user = response;
+          this.updateUserInfoStatus = "Changes saved successfully"
+          this.updateUserInfoStatusClass = "success";
+        },
+        error: (error) => {
+          // TODO: Modify both frontend and backend to pass specific error messages
+          this.updateUserInfoStatus = "Changes were not saved. Please try again";
+          this.updateUserInfoStatusClass = "danger";
+        }
+      })
+      this.currentPasswordField = "";
+      this.newPasswordField = "";
+    } else {
+      this.updateUserInfoStatus = "Please enter your password to apply changes";
+      this.updateUserInfoStatusClass = "danger";
+    }
+  }
+
+  deleteAccountModal(): void {
+    // TODO: implement function
   }
 
 }

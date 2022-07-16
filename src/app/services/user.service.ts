@@ -35,6 +35,11 @@ export class UserService {
       .pipe(catchError(this.handleError));
   }
 
+  updateUser(user: User) {
+    return this.http.put<User>(`${this.userUrl}/${user.id}`, user, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(httpError: HttpErrorResponse) {
 
     if (httpError.error instanceof ErrorEvent) {
