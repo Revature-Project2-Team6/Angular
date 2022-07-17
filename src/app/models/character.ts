@@ -1,3 +1,4 @@
+import { ThisReceiver } from "@angular/compiler";
 import { User } from "./users";
 
 export class Character {
@@ -41,33 +42,34 @@ export class Species {
 export class Stats {
 
   id: number;
-  def: number;
-  dex: number;
-  exp: number;
-  fp: number;
+  defense: number;
+  dexterity: number;
+  experience: number;
+  forcePower: number;
   health: number;
-  lvl: number;
-  str: number;
+  level: number;
+  strength: number;
 
   constructor(
     id: number, 
-    def: number, 
-    dex: number, 
-    exp: number, 
-    fp: number, 
+    defense: number, 
+    dexterity: number, 
+    experience: number, 
+    forcePower: number, 
     health: number, 
-    lvl: number, 
-    str: number, 
+    level: number, 
+    strength: number,
 ) {
     this.id = id
-    this.def = def
-    this.dex = dex
-    this.exp = exp
-    this.fp = fp
+    this.defense = defense
+    this.dexterity = dexterity
+    this.experience = experience
+    this.forcePower = forcePower
     this.health = health
-    this.lvl = lvl
-    this.str = str
+    this.level = level
+    this.strength = strength
   }
+
 }
 
 export class Skills {
