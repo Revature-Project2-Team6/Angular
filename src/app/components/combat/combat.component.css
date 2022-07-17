@@ -1,0 +1,43 @@
+.card{
+  color: whitesmoke;
+  margin-top: 15%;
+  width: 30rem;
+  text-align: center;
+  background-color: black;
+}
+
+.img{
+  width: 20rem;
+  height: 15rem;
+}
+.list-group-item{
+  font-size: xx-large;
+  text-align: left;
+  background-color: bisque;
+}
+
+.container{
+  text-align: center;
+}
+.row{
+  margin-bottom: 2%;
+  padding-bottom: 5%;
+  background-color: burlywood;
+}
+.playerWin{
+  color: green;
+}
+.draw{
+  color:blue;
+}
+.npcWin{
+  color: red;
+}
+
+#message{
+  font-size:xx-large;
+  margin-top: 4%;
+}
+#button-div{
+  margin-top: 4%;
+}

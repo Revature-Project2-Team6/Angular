@@ -7,6 +7,7 @@ export class Character {
   species: Species;
   imageUrl: string;
   stats: Stats;
+  //skills: Skills[];
   owner: User;
 
   constructor(
@@ -15,6 +16,7 @@ export class Character {
     species: Species,
     imageUrl: string,
     stats: Stats,
+    //skills: Skills[],
     owner: User
   ) {
     this.id = id
@@ -22,9 +24,32 @@ export class Character {
     this.species = species
     this.imageUrl = imageUrl
     this.stats = stats
+    //this.skills = skills;
     this.owner= owner
   }
+
+  setStat(stat: string, amount: number){
+    switch(stat){
+      case 'dex':{
+          this.stats.dexterity += amount;
+          break;
+        }
+        case 'def':{
+          this.stats.defense += amount;
+          break;
+        }
+        case 'fp':{
+          this.stats.forcePower += amount;
+          break;
+        }
+        case 'str':{
+          this.stats.strength += amount;
+          break;
+        }
+    }
+  }
 }
+
 
 export class Species {
 

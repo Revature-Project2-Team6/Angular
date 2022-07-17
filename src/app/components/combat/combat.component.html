@@ -1,7 +1,6 @@
 <!-- this will first display the players character list to select who they want to use to fight with
     then it will go into the actual combat calculation steps shown in the trello combat image-->
 
-<p>combat works!</p>
 <!--Background will be the planet color? or maybe sand for tatooine?-->
 
 <!--Card left (NPC)                      Card right(Player)
@@ -13,3 +12,46 @@
     Def             # |              |   Def         # |
     FP              # |              |   FP          # |
   _____________________                 ________________  -->
+
+
+  <!-- ill make this look better later-->
+  <div class="container">
+    <div class="row">
+      <div class="message-div">
+        <p id="message" 
+              [ngClass]="{playerWin : winner === 'player',
+                       npcWin : winner === 'npc', 
+                       draw : winner === 'draw'}">
+        {{message}}</p>
+      </div>
+      <div class="col-lg-6 d-flex justify-content-center text-center">
+        <div class="card bf-dark" id="npcCard">
+          <img src="assets/{{npc.imageUrl}}.png" alt="npcImage" class="card-img-top">
+          <div class="card-body">
+            <h3 class="card-title">{{npc.name}}</h3>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" id="npc-atk">ATK: {{npc.stats.strength}}</li>
+            <li class="list-group-item" id="npc-fp">FP: {{npc.stats.forcePower}}</li>
+            <li class="list-group-item" id="npc-def">DEF: {{npc.stats.defense}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6 d-flex justify-content-center text-center">
+        <div class="card" id="playerCard">
+          <img src="assets/{{player.imageUrl}}.png" alt="playerImage" class="card-img-top">
+          <div class="card-body">
+            <h3 class="card-title">{{player.name}}</h3>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" id="npc-atk">ATK: {{player.stats.strength}}</li>
+            <li class="list-group-item" id="npc-fp">FP: {{player.stats.forcePower}}</li>
+            <li class="list-group-item" id="npc-def">DEF: {{player.stats.defense}}</li>
+          </ul>
+        </div>
+      </div>
+      <div id="button-div">
+        <button class="btn btn-danger btn-lg" (click)="startFight()">Fight!</button>
+      </div>
+    </div>
+  </div>
