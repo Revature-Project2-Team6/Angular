@@ -12,7 +12,10 @@
           enemies, and learn more about this planet!</p>
         <p *ngIf="showLore">{{ gamePrompt }}</p>
         <!-- show game component inside card body-->
-        <app-combat></app-combat>
+        <!-- if gameprompt is not "You are currently in a fight!", 
+        then hide the component and set combat message to nothing-->
+        <!-- otherwise, show the component!-->
+        <app-combat *ngIf="gamePrompt==='You are currently in a fight!'"></app-combat>
 
 
       </div>
