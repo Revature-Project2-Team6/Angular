@@ -1,3 +1,13 @@
-.statPrompt {
-    color: yellow;
+.card {
+    margin-top: 12vh;
+}
+
+.bg-image {
+    background-image: url('../../../assets/galaxy.png');
+    height: 100vh;
+    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-top: 1px;
 }

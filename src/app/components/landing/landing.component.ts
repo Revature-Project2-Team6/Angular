@@ -45,7 +45,7 @@ export class LandingComponent {
         this.appComponent.userId = id;
       },
       (error) => {
-        this.errorMsg = "Login failed. Please try again."
+        this.errorMsg = "Username and/or password is incorrect. Please try again."
         this.user.password = "";
       }
     )
