@@ -13,41 +13,45 @@
     FP              # |              |   FP          # |
   _____________________                 ________________  -->
 
-  <div class="modal charSelectModal">
-    <div id="characterList">
-      <ul id="list"> <!-- this will be dynamically filled with the players characters later-->
-      </ul>
-    </div>
-  </div>
 
   <!-- ill make this look better later-->
   <div class="container">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="message-div">
+        <p id="message" 
+              [ngClass]="{playerWin : winner === 'player',
+                       npcWin : winner === 'npc', 
+                       draw : winner === 'draw'}">
+        {{message}}</p>
+      </div>
+      <div class="col-lg-6 d-flex justify-content-center text-center">
         <div class="card bf-dark" id="npcCard">
-          <img src="${{npc.imageUrl}}" alt="npcImage" class="card-img-top">
+          <img src="assets/{{npc.imageUrl}}.jpg" alt="npcImage" class="card-img-top">
           <div class="card-body">
             <h3 class="card-title">{{npc.name}}</h3>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">ATK: {{npc.stats.str}}</li>
-            <li class="list-group-item">FP: {{npc.stats.fp}}</li>
-            <li class="list-group-item">DEF: {{npc.stats.def}}</li>
+            <li class="list-group-item" id="npc-atk">ATK: {{npc.stats.str}}</li>
+            <li class="list-group-item" id="npc-fp">FP: {{npc.stats.fp}}</li>
+            <li class="list-group-item" id="npc-def">DEF: {{npc.stats.def}}</li>
           </ul>
         </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 d-flex justify-content-center text-center">
         <div class="card" id="playerCard">
-          <img src="${{player.imageUrl}}" alt="npcImage" class="card-img-top">
+          <img src="assets/{{player.imageUrl}}.jpg" alt="playerImage" class="card-img-top">
           <div class="card-body">
             <h3 class="card-title">{{player.name}}</h3>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">ATK: {{player.stats.str}}</li>
-            <li class="list-group-item">FP: {{player.stats.fp}}</li>
-            <li class="list-group-item">DEF: {{player.stats.def}}</li>
+            <li class="list-group-item" id="npc-atk">ATK: {{player.stats.str}}</li>
+            <li class="list-group-item" id="npc-fp">FP: {{player.stats.fp}}</li>
+            <li class="list-group-item" id="npc-def">DEF: {{player.stats.def}}</li>
           </ul>
         </div>
+      </div>
+      <div id="button-div">
+        <button class="btn btn-danger btn-lg" (click)="startFight()">Fight!</button>
       </div>
     </div>
   </div>

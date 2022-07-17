@@ -1,6 +1,7 @@
 import { Character, Species, Stats, Skill } from './../../models/character';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/users';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-combat',
@@ -9,6 +10,8 @@ import { User } from 'src/app/models/users';
 })
 export class CombatComponent{
 
+  winner: string = '';
+  message: string = '';
   statsUpdated: boolean = false;
   combatCompleted: boolean = false;
   player: Character = new Character(0, '',
@@ -22,20 +25,28 @@ export class CombatComponent{
   new Stats(0, 0, 0, 0, 0, 0, 0, 0, 0),
   [new Skill(0, '', '', 0, '')],
   new User(0, '', '', ''));
-  constructor() { }
+  constructor(public appComponent: AppComponent) { }
 
-  winner: string = '';
+  ngOnInit(){
+    this.player = this.appComponent.playerCharacter;
+    this.npc = this.appComponent.npcCharacter;
+  }
 
 
   startFight(): void{
     // display the stats
+    console.log('combat started')
     this.addSkillMods(this.player);
     this.addSkillMods(this.npc);
     this.statsUpdated = true;
     this.winner = this.calculateWinner(this.player, this.npc);
-    this.subSkillMods(this.player);
-    this.subSkillMods(this.npc);
+    console.log(this.winner);
     this.combatCompleted = true;
+    if(this.winner != 'draw'){
+      this.message = this.winner + ' wins!'
+    } else{
+      this.message = this.winner;
+    }
   }
 
   addSkillMods(char:Character){
