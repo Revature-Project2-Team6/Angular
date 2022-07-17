@@ -45,7 +45,7 @@
                 <div class="container text-center">
 
                     <button [disabled]="user.password.length < 8" type="button" class="btn btn-primary btn-block fa-lg gradient-custom-2"
-                        (click)="registerUser()">Register</button>
+                        (click)="registerUser()" required>Register</button>
                     <!-- IF there is a message, show it -->
                     
                     <div *ngIf="clientMessage.message.length > 0" class="alert alert-secondary center-block mt-4"
