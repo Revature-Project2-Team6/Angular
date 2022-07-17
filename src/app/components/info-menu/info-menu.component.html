@@ -68,9 +68,6 @@
               <div class="col-auto">
                 <button (click)="updateUserInfo()" class="btn btn-primary">Save</button>
               </div>
-              <div class="col-auto">
-                <button class="btn btn-outline-danger">Delete account</button>
-              </div>
             </div>
             <p *ngIf="updateUserInfoStatus" class="alert alert-{{ updateUserInfoStatusClass }} mb-0 mt-3">{{ updateUserInfoStatus }}</p>
           </form>

@@ -69,8 +69,4 @@ export class InfoMenuComponent implements OnInit {
     }
   }
 
-  deleteAccountModal(): void {
-    // TODO: implement function
-  }
-
 }
