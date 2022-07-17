@@ -1,23 +1,27 @@
-<div class="container">
-  <div class="card">
+<div class="bg-image">
+  <div class="container">
+    <div class="card">
 
-    <div class="card-header text-center">
-      <h1>Game</h1>
-    </div>
-    <div class="card-body">
-      <!-- if button has never been pressed, show default text-->
-      <!-- otehrwise, show the game prompt!-->
-      <p *ngIf="!showLore">Welcome to the game! Play by pressing the explore button to explore this planet, encounter enemies, and learn more about this planet!</p>
-      <p *ngIf="showLore">{{ gamePrompt }}</p>
-      <!-- where do we want to show game? inside the card-body?-->
+      <div class="card-header text-center">
+        <h1>Game</h1>
+      </div>
+      <div class="card-body">
+        <!-- if button has never been pressed, show default text-->
+        <!-- otehrwise, show the game prompt!-->
+        <p *ngIf="!showLore">Welcome to the game! Play by pressing the explore button to explore this planet, encounter
+          enemies, and learn more about this planet!</p>
+        <p *ngIf="showLore">{{ gamePrompt }}</p>
+        <!-- where do we want to show game? inside the card-body?-->
 
+      </div>
+      <div class="card-footer">
+        <p class="text-success">{{ statPrompt }}</p>
+      </div>
     </div>
-    <div class="card-footer">
-      <p class="text-success">{{ statPrompt }}</p>
+    <div class="btn-group d-flex justify-content-around" role="group" aria-label="Basic example">
+      <button (click)="getEncounter()" type="button"
+        class="btn btn-primary btn-block fa-lg gradient-custom-2">Explore</button>
+      <button routerLink="homepage" type="button" class="btn btn-primary">Return to Dashboard</button>
     </div>
-  </div>
-  <div class="btn-group d-flex justify-content-around" role="group" aria-label="Basic example">
-    <button (click)="getEncounter()" type="button" class="btn btn-primary btn-block fa-lg gradient-custom-2">Explore</button>
-    <button routerLink="homepage" type="button" class="btn btn-primary">Return to Dashboard</button>
   </div>
 </div>
