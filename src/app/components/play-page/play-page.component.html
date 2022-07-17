@@ -8,9 +8,11 @@
       <div class="card-body">
         <!-- if button has never been pressed, show default text-->
         <!-- otehrwise, show the game prompt!-->
-        <p *ngIf="!showLore">Welcome to the game! Play by pressing the explore button to explore this planet, encounter
-          enemies, and learn more about this planet!</p>
-        <p *ngIf="showLore">{{ gamePrompt }}</p>
+        <h5 *ngIf="!showLore">Welcome to the game! Play by pressing the explore button to explore this planet's lore, or fight enemies in encounters! </h5>
+          <!-- show regularly -->
+        <h5 *ngIf="showLore && gamePrompt != 'You are currently in a fight!'">{{ gamePrompt }}</h5>
+        <h5  class="text-danger"*ngIf="gamePrompt === 'You are currently in a fight!'">{{ gamePrompt }}</h5>
+
         <!-- show game component inside card body-->
         <!-- if gameprompt is not "You are currently in a fight!", 
         then hide the component and set combat message to nothing-->
@@ -20,7 +22,7 @@
 
       </div>
       <div class="card-footer">
-        <p class="text-success">{{ statPrompt }}</p>
+        <h5 class="text-success">{{ statPrompt }}</h5>
       </div>
     </div>
     <div class="btn-group d-flex justify-content-around" role="group" aria-label="Basic example">
