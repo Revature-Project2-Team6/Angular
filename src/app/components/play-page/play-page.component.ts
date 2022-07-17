@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class PlayPageComponent implements OnInit {
 
 
+  //boolean val to show lore
+  //does not show lore by default 
+  showLore: boolean = false;
   // values are percentage of encounter
   fightEncounter: number = 50;
   loreEncounter: number = 40;
@@ -40,6 +43,8 @@ export class PlayPageComponent implements OnInit {
 
   getEncounter() {
 
+    //button has been pressed. set boolean val to true 
+    this.showLore = true;
     this.chance = Math.random();
 
     if (this.chance <= this.statEncounter / 100) {
