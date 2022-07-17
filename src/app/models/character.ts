@@ -1,3 +1,4 @@
+import { ThisReceiver } from "@angular/compiler";
 import { User } from "./users";
 
 export class Character {
@@ -6,7 +7,7 @@ export class Character {
   species: Species;
   imageUrl: string;
   stats: Stats;
-  skills: Skill[];
+  //skills: Skills[];
   owner: User;
 
   constructor(
@@ -15,7 +16,7 @@ export class Character {
     species: Species,
     imageUrl: string,
     stats: Stats,
-    skills: Skill[],
+    //skills: Skills[],
     owner: User
   ) {
     this.id = id
@@ -23,26 +24,26 @@ export class Character {
     this.species = species
     this.imageUrl = imageUrl
     this.stats = stats
-    this.skills = skills
-    this.owner = owner
+    //this.skills = skills;
+    this.owner= owner
   }
 
   setStat(stat: string, amount: number){
     switch(stat){
       case 'dex':{
-          this.stats.dex += amount;
+          this.stats.dexterity += amount;
           break;
         }
         case 'def':{
-          this.stats.def += amount;
+          this.stats.defense += amount;
           break;
         }
         case 'fp':{
-          this.stats.fp += amount;
+          this.stats.forcePower += amount;
           break;
         }
         case 'str':{
-          this.stats.str += amount;
+          this.stats.strength += amount;
           break;
         }
     }
@@ -50,16 +51,62 @@ export class Character {
 }
 
 
-export class Skill{
-  id: Number;
+export class Species {
+
+  id: number;
+  speciesName: string;
+  description: string;
+
+  constructor(id: number, speciesName: string, description: string) {
+    this.id = id
+    this.speciesName = speciesName
+    this.description = description
+  }
+}
+
+export class Stats {
+
+  id: number;
+  defense: number;
+  dexterity: number;
+  experience: number;
+  forcePower: number;
+  health: number;
+  level: number;
+  strength: number;
+
+  constructor(
+    id: number,
+    defense: number,
+    dexterity: number,
+    experience: number,
+    forcePower: number,
+    health: number,
+    level: number,
+    strength: number,
+) {
+    this.id = id
+    this.defense = defense
+    this.dexterity = dexterity
+    this.experience = experience
+    this.forcePower = forcePower
+    this.health = health
+    this.level = level
+    this.strength = strength
+  }
+
+}
+
+export class Skills {
+
+  id: number;
   description: string;
   name: string;
   power: number;
   stat: string;
 
-
   constructor(
-    id: Number,
+    id: number,
     description: string,
     name: string,
     power: number,
@@ -71,57 +118,15 @@ export class Skill{
     this.power = power
     this.stat = stat
   }
-
 }
 
-export class Stats{
-  id: number;
-  def: number;
-  dex: number;
-  exp: number;
-  fp: number;
-  health: number;
-  lvl: number;
-  str: number;
-  character_id;
+export class character_and_skills {
 
-  constructor(
-    id: number,
-    def: number,
-    dex: number,
-    exp: number,
-    fp: number,
-    health: number,
-    lvl: number,
-    str: number,
-    character_id: number
-) {
-    this.id = id
-    this.def = def
-    this.dex = dex
-    this.exp = exp
-    this.fp = fp
-    this.health = health
-    this.lvl = lvl
-    this.str = str
+  skill_id: number;
+  character_id: number;
+  constructor(skill_id: number, character_id: number) {
+    this.skill_id = skill_id
     this.character_id = character_id
-  }
-}
-
-export class Species{
-  id: number;
-  description: string;
-  name: string;
-
-
-  constructor(
-    id: number,
-    description: string,
-    name: string
-) {
-    this.id = id
-    this.description = description
-    this.name = name
   }
 
 }

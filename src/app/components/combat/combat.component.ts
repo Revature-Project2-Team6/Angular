@@ -1,4 +1,4 @@
-import { Character, Species, Stats, Skill } from './../../models/character';
+import { Character, Species, Stats, Skills } from './../../models/character';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/users';
 import { AppComponent } from 'src/app/app.component';
@@ -16,14 +16,14 @@ export class CombatComponent{
   combatCompleted: boolean = false;
   player: Character = new Character(0, '',
   new Species(0, '', ''), '',
-  new Stats(0, 0, 0, 0, 0, 0, 0, 0, 0),
-  [new Skill(0, '', '', 0, '')],
+  new Stats(0, 0, 0, 0, 0, 0, 0, 0,),
+  //[new Skills(0, '', '', 0, '')],
   new User(0, '', '', ''));
 
   npc: Character = new Character(0, '',
   new Species(0, '', ''), '',
-  new Stats(0, 0, 0, 0, 0, 0, 0, 0, 0),
-  [new Skill(0, '', '', 0, '')],
+  new Stats(0, 0, 0, 0, 0, 0, 0, 0),
+  //[new Skills(0, '', '', 0, '')],
   new User(0, '', '', ''));
   constructor(public appComponent: AppComponent) { }
 
@@ -36,8 +36,8 @@ export class CombatComponent{
   startFight(): void{
     // display the stats
     console.log('combat started')
-    this.addSkillMods(this.player);
-    this.addSkillMods(this.npc);
+    //this.addSkillMods(this.player);
+    //this.addSkillMods(this.npc);
     this.statsUpdated = true;
     this.winner = this.calculateWinner(this.player, this.npc);
     console.log(this.winner);
@@ -50,10 +50,10 @@ export class CombatComponent{
   }
 
   addSkillMods(char:Character){
-    this.useSkills(char);
+    //this.useSkills(char);
   }
 
-  subSkillMods(char:Character){
+  /* subSkillMods(char:Character){
     for(let skill = 0; skill < char.skills.length; skill++){
       char.setStat(char.skills[skill].stat, -char.skills[skill].power);
     }
@@ -63,13 +63,13 @@ export class CombatComponent{
     for(let skill = 0; skill < char.skills.length; skill++){
       char.setStat(char.skills[skill].stat, char.skills[skill].power);
     }
-  }
+  } */
 
   calculateWinner(player:Character, npc:Character) : string{
-    let playerEP: Number = player.stats.str + player.stats.fp;
-    let playerED: Number = player.stats.def + player.stats.fp;
-    let npcEP: Number = npc.stats.str + npc.stats.fp;
-    let npcED:Number = npc.stats.def + npc.stats.fp;
+    let playerEP: Number = player.stats.strength + player.stats.forcePower;
+    let playerED: Number = player.stats.defense + player.stats.forcePower;
+    let npcEP: Number = npc.stats.strength + npc.stats.forcePower;
+    let npcED:Number = npc.stats.defense + npc.stats.forcePower;
 
     if(playerEP > npcED){
       return 'player';

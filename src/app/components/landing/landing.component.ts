@@ -31,13 +31,18 @@ export class LandingComponent {
   logIn(): void {
     this.authServ.login(this.user.username, this.user.password).subscribe(
       (response) => {
+        console.log(response.headers);
         const token = response.headers.get("auth-token");
         sessionStorage.setItem("token", token);
 
         this.appComponent.isLoggedIn = true;
+        this.appComponent.loggedInUser.id = response.headers.get("user-id");
 
         this.user.username = "";
         this.user.password = "";
+
+        const id = response.headers.get("user-id");
+        this.appComponent.userId = id;
       },
       (error) => {
         this.errorMsg = "Login failed. Please try again."

@@ -5,6 +5,7 @@
 <!-- wrapped in its own container -->
 
 <div class="container">
+    <router-outlet></router-outlet>
     <div class="card-group">
         <div class="col">
             <div class="card">
@@ -16,7 +17,7 @@
 
                 </div>
                 <div class="card-footer">
-                    <a id="create-button" class="btn btn-primary gradient-custom-2">Create</a>
+                    <a routerLink="/character" id="create-button" class="btn btn-primary gradient-custom-2">Create</a>
                 </div>
             </div>
 
@@ -32,7 +33,7 @@
 
                 </div>
                 <div class="card-footer">
-                    <a id="create-button" class="btn btn-primary gradient-custom-2">Play!</a>
+                    <a routerLink="/planet" id="create-button" class="btn btn-primary gradient-custom-2">Play!</a>
                 </div>
             </div>
         </div>
@@ -47,7 +48,7 @@
 
                 </div>
                 <div class="card-footer">
-                    <a id="create-button" class="btn btn-primary gradient-custom-2">View info</a>
+                    <a routerLink="/info" id="create-button" class="btn btn-primary gradient-custom-2">View info</a>
                 </div>
             </div>
         </div>
