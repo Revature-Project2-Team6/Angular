@@ -11,7 +11,9 @@
         <p *ngIf="!showLore">Welcome to the game! Play by pressing the explore button to explore this planet, encounter
           enemies, and learn more about this planet!</p>
         <p *ngIf="showLore">{{ gamePrompt }}</p>
-        <!-- where do we want to show game? inside the card-body?-->
+        <!-- show game component inside card body-->
+        <app-combat></app-combat>
+
 
       </div>
       <div class="card-footer">
