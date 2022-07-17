@@ -51,13 +51,13 @@ export class Stats {
   strength: number;
 
   constructor(
-    id: number, 
-    defense: number, 
-    dexterity: number, 
-    experience: number, 
-    forcePower: number, 
-    health: number, 
-    level: number, 
+    id: number,
+    defense: number,
+    dexterity: number,
+    experience: number,
+    forcePower: number,
+    health: number,
+    level: number,
     strength: number,
 ) {
     this.id = id
@@ -81,10 +81,10 @@ export class Skills {
   stat: string;
 
   constructor(
-    id: number, 
-    description: string, 
-    name: string, 
-    power: number, 
+    id: number,
+    description: string,
+    name: string,
+    power: number,
     stat: string
 ) {
     this.id = id
