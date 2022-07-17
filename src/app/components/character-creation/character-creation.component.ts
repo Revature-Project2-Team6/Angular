@@ -37,6 +37,8 @@ export class CharacterCreationComponent implements OnInit {
 
   createCharacter() {
 
+    this.assignStats();
+
     this.character.imageUrl = `assets/${this.character.species.speciesName}.png`;
     this.character.owner = this.appComponent.loggedInUser;
 
@@ -68,9 +70,12 @@ export class CharacterCreationComponent implements OnInit {
       setTimeout(() => {
 
         this.registerCharacter(this.character);
-      }, 3000)
+      }, 2000)
     } else {
-      this.registerCharacter(this.character);
+      setTimeout(() => {
+
+        this.registerCharacter(this.character);
+      }, 2000)
     }
   }
 
@@ -105,4 +110,34 @@ export class CharacterCreationComponent implements OnInit {
     )
   }
 
+  assignStats() {
+
+    console.log("stats assigned")
+
+    switch(this.character.species.speciesName) {
+
+      case "human": {
+
+        this.character.stats = new Stats(0, 2, 3, 0, 2, 12, 1, 3);
+        break;
+      }
+
+      case "twi'lek": {
+        this.character.stats = new Stats(0, 1, 4, 0, 3, 10, 1, 2);
+        break;
+      }
+
+      case "wookie": {
+        this.character.stats = new Stats(0, 3, 2, 0, 1, 14, 1, 5);
+        break;
+      }
+
+      case "hutt": {
+        this.character.stats = new Stats(0, 4, 1, 0, 2, 15, 1, 3);
+        break;
+      }
+    }
+
+    console.log(this.character.stats)
+  }
 }
