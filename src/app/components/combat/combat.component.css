@@ -1,43 +1,64 @@
-.card{
+.card {
   color: whitesmoke;
-  
+
   width: 20rem;
   text-align: center;
   background-color: black;
+
+
+
+
+  border-radius: 4px;
+  
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+ 
+
 }
-img{
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+img {
   height: 13vw;
   width: auto;
   align-items: center;
 }
 
-.list-group-item{
+.list-group-item {
   font-size: xx-large;
   text-align: left;
   background-color: bisque;
 }
 
-.container{
+.container {
   text-align: center;
 }
-.row{
- 
+
+.row {
+
   background-color: burlywood;
 }
-.playerWin{
+
+.playerWin {
   color: green;
 }
-.draw{
-  color:blue;
+
+.draw {
+  color: blue;
 }
-.npcWin{
+
+.npcWin {
   color: red;
 }
 
-#message{
-  font-size:xx-large;
+#message {
+  font-size: xx-large;
   margin-top: 4%;
 }
-#button-div{
+
+#button-div {
   margin-top: 4%;
 }

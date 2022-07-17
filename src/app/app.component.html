@@ -1,16 +1,5 @@
 <!-- show nav at all times -->
 <app-nav></app-nav>
 
-<!-- The router outlet will display the component that is correlated
-  with the URL path -->
-  <!-- show landing page if user is not logged in -->
-  <!-- if user is logged in then show the homepage, which has cards that will lead users to other pages -->
-<app-landing *ngIf="!this.isLoggedIn"></app-landing>
-
-<!-- if we are logged in, start the routing!! -->
-<div *ngIf="this.isLoggedIn">
-  <router-outlet></router-outlet>
-</div>
-
-<!--<app-homepage *ngIf="this.isLoggedIn"></app-homepage> -->
+<app-play-page></app-play-page>
 
