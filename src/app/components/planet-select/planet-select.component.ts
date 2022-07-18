@@ -1,5 +1,8 @@
+import { CharacterService } from 'src/app/services/character.service';
 import { Planet } from './../../models/planet';
 import { Component, OnInit } from '@angular/core';
+import { Character } from 'src/app/models/character';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-planet-select',
@@ -8,16 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetSelectComponent implements OnInit {
 
+  isCharSelected: boolean = false;
+
   planets: Planet[] = [];
+  characters: Character[] = [];
 
                             // id, name, diameter, climat
   tatooine: Planet = new Planet(1, '', 0, '');
   hoth: Planet = new Planet(4, '', 0, '');
   endor: Planet = new Planet(7, '', 0, '');
 
-  constructor() { }
+  constructor(public appComponent: AppComponent, public cServ: CharacterService) { }
 
   ngOnInit(): void {
+
+    this.cServ.getCharactersByUserId(this.appComponent.loggedInUser.id).subscribe(
+      (response) => {
+        this.characters = response;
+      }
+    );
 
     this.planets.push(this.tatooine);
     this.planets.push(this.hoth);
@@ -37,7 +49,9 @@ export class PlanetSelectComponent implements OnInit {
     })
   }
 
-  test() {
-    console.log("Tatooine clicked!")
+  selectChar(char: Character) {
+    this.appComponent.playerCharacter = char;
+    this.isCharSelected = true;
+    console.log(char);
   }
 }
