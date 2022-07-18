@@ -23,6 +23,12 @@ export class CharacterService {
     .pipe(catchError(this.handleError))
   }
 
+  updateCharacter(character: Character): Observable<Character> {
+
+    return this.http.put<Character>(`${this.charUrl}/update`, character, this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   getCharactersByUserId(userId: number): Observable<Character[]> {
     return this.http.get<Character[]>(`${this.charUrl}/find/${userId}`, this.httpOptions)
       .pipe(catchError(this.handleError));

@@ -1,4 +1,9 @@
+import { CombatComponent } from './../combat/combat.component';
+import { ClientMessage } from './../../models/client-message';
+import { CharacterService } from 'src/app/services/character.service';
+import { AppComponent } from 'src/app/app.component';
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-play-page',
@@ -12,9 +17,9 @@ export class PlayPageComponent implements OnInit {
   //does not show lore by default 
   showLore: boolean = false;
   // values are percentage of encounter
-  fightEncounter: number = 50;
+  fightEncounter: number = 60;
   loreEncounter: number = 40;
-  statEncounter: number = 30;
+  statEncounter: number = 20;
   chance: number = 0;
 
   lore: string[] = ["You are surrounded by sand on a hot day. You look around, finding no signs of life in sight.",
@@ -34,9 +39,10 @@ export class PlayPageComponent implements OnInit {
 
   gamePrompt: string = '';
   statPrompt: string = '';
+  clientMessage: ClientMessage = new ClientMessage('');
 
 
-  constructor() { }
+  constructor(public appComponent: AppComponent, private characterService: CharacterService) { }
 
   ngOnInit(): void {
   }
@@ -46,22 +52,33 @@ export class PlayPageComponent implements OnInit {
     //button has been pressed. set boolean val to true 
     this.showLore = true;
     this.chance = Math.random();
+    this.appComponent.resetFight = true;
 
-    if (this.chance <= this.statEncounter / 100) {
+    setTimeout(() => {
+      
+          if (this.chance <= this.statEncounter / 100) {
+      
+            let curStat: number = this.generateRandom(this.statDesc.length);
+      
+            this.gamePrompt = this.statDesc[curStat];
+            this.statPrompt = this.stat[curStat];
+      
+            this.increaseStat(curStat);
+      
+          } else if (this.chance <= this.loreEncounter / 100) {
+            this.gamePrompt = this.lore[this.generateRandom(this.lore.length)];
+            this.statPrompt = '';
+          } else {
+      
+            this.appComponent.resetFight = false;
+            this.appComponent.isFighting= true;
+            this.gamePrompt = "You are currently in a fight!";
+            this.statPrompt = '';
+          }
 
-      let curStat: number = this.generateRandom(this.statDesc.length);
 
-      this.gamePrompt = this.statDesc[curStat];
-      this.statPrompt = this.stat[curStat];
 
-    } else if (this.chance <= this.loreEncounter / 100) {
-      this.gamePrompt = "You are currently in a fight!";
-      this.statPrompt = '';
-    } else {
-      this.gamePrompt = this.lore[this.generateRandom(this.lore.length)];
-      this.statPrompt = '';
-    }
-    console.log(this.chance);
+    }, 200)
   }
 
   generateRandom(limit: number): number {
@@ -78,27 +95,39 @@ export class PlayPageComponent implements OnInit {
     switch(stat) {
       // dexterity
       case 0: {
-
+        this.appComponent.playerCharacter.stats.dexterity = this.appComponent.playerCharacter.stats.dexterity + 1;
         break;
       }
       // strength
       case 1: {
-
+        this.appComponent.playerCharacter.stats.strength = this.appComponent.playerCharacter.stats.strength + 1;
         break;
       }
 
       // defense
       case 2: {
-
+        this.appComponent.playerCharacter.stats.defense = this.appComponent.playerCharacter.stats.defense + 1;
         break;
       }
 
       // force power
       case 3: {
-
+        this.appComponent.playerCharacter.stats.forcePower = this.appComponent.playerCharacter.stats.forcePower + 1;
         break;
       }
     }
-  }
 
+    this.characterService.updateCharacter(this.appComponent.playerCharacter)
+    .subscribe(
+
+      data => {
+        this.clientMessage.message = `Successfully updated ${this.appComponent.playerCharacter}!`
+
+        this.appComponent.playerCharacter = data;
+      
+
+      },
+      error => this.clientMessage.message = `Failed to update character.`
+    )
+  }
 }

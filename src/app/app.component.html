@@ -1,5 +1,10 @@
 <!-- show nav at all times -->
 <app-nav></app-nav>
 
-<app-play-page></app-play-page>
+<app-landing *ngIf="!this.isLoggedIn"></app-landing>
+<!-- <app-homepage *ngIf="this.isLoggedIn"></app-homepage> -->
 
+<!-- if we are logged in, start the routing!! -->
+<div *ngIf="this.isLoggedIn">
+  <router-outlet></router-outlet>
+</div>

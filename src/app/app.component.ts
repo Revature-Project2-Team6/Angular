@@ -12,6 +12,8 @@ export class AppComponent {
   public registerModalVisibility: string = "";
   public isGalaxyLoaded: boolean = false;
   public isLoggedIn = false;
+  public isFighting: boolean = false;
+  public resetFight: boolean = true;
 
   public playerCharacter: Character = new Character(0, 'Uncle Owen',
   new Species(0, 'human', 'human'), 'human',

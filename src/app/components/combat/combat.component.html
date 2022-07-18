@@ -18,15 +18,16 @@
   <div class="container">
     <div class="row">
       <div class="message-div">
-        <p id="message" 
+        <p *ngIf="!appComponent.isFighting" id="message" 
               [ngClass]="{playerWin : winner === 'player',
                        npcWin : winner === 'npc', 
                        draw : winner === 'draw'}">
         {{message}}</p>
+        <p *ngIf="leveledUp" >You leveled up!</p>
       </div>
       <div class="col d-flex justify-content-center text-center">
         <div class="card bf-dark shadow-lg" id="npcCard">
-          <img src="assets/{{npc.imageUrl}}.png" alt="npcImage" class="card-img-top">
+          <img src={{npc.imageUrl}} alt="npcImage" class="card-img-top">
           <div class="card-body">
             <h3 class="card-title">{{npc.name}}</h3>
           </div>
@@ -39,7 +40,7 @@
       </div>
       <div class="col d-flex justify-content-center text-center">
         <div class="card shadow-lg" id="playerCard">
-          <img src="assets/{{player.imageUrl}}.png" alt="playerImage" class="card-img-top">
+          <img src={{player.imageUrl}} alt="playerImage" class="card-img-top">
           <div class="card-body">
             <h3 class="card-title">{{player.name}}</h3>
           </div>
@@ -51,7 +52,7 @@
         </div>
       </div>
       <div id="button-div">
-        <button class="btn btn-danger btn-lg" (click)="startFight()">Fight!</button>
+        <button [disabled]="!appComponent.isFighting" class="btn btn-danger btn-lg" (click)="startFight()">Fight!</button>
       </div>
     </div>
   </div>

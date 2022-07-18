@@ -9,19 +9,65 @@
             background-repeat: no-repeat;
             background-size: 100%;">
 
+<section class="card" *ngIf="!isCharSelected">
+    <h4 class="card-header mb-0">Choose a Character!</h4>
+    <div class="card-body">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+        <div *ngFor="let char of characters" class="col">
+          <div class="card">
+            <img src="{{ char.imageUrl }}" alt="Image of {{ char.name }}" class="card-img-top">
+            <div class="list-group list-group-flush small">
+              <div class="list-group-item h5 mb-0">{{ char.name }}</div>
+              <div class="list-group-item">Species: {{ char.species.speciesName.charAt(0).toUpperCase() }}{{ char.species.speciesName.substr(1) }}</div>
+              <div class="list-group-item">Level {{ char.stats.level }} ({{ char.stats.experience }} EXP)</div>
+              <div class="list-group-item">Health: {{ char.stats.health }} </div>
+              <div class="list-group-item">
+                <div class="row">
+                  <div class="col-6 col-md-4 col-lg-6">
+                    <abbr title="Force Power">FP</abbr>: {{ char.stats.forcePower }}
+                  </div>
+                  <div class="col-6 col-md-4 col-lg-6">
+                    <abbr title="Defense">DEF</abbr>: {{ char.stats.defense }}
+                  </div>
+                  <div class="col-6 col-md-4 col-lg-6">
+                    <abbr title="Strength">STR</abbr>: {{ char.stats.strength }}
+                  </div>
+                  <div class="col-6 col-md-4 col-lg-6">
+                    <abbr title="Dexterity">DEX</abbr>: {{ char.stats.dexterity }}
+                  </div>
+                </div>
+              </div>
+              <div class="list-group-item character-actions">
+                <div class="btn-group btn-group-sm">
+                  <!-- Add action buttons here -->
+                  <a class="btn btn-outline-primary" (click)="selectChar(char)">Select</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <div class="hoth">
-        <img (click)="test()" [ngStyle]="{'width': hoth.diameter + 'px'}" class="planet" src="../../../assets/Hoth.png"
-            alt="hoth">
-    </div>
-    <div class="endor">
-        <img (click)="test()" [ngStyle]="{'width': hoth.diameter + 'px'}" class="planet" src="../../../assets/Endor.png"
-            alt="endor">
-    </div>
+  <section *ngIf="isCharSelected">
+      
+          <div class="hoth">
+              <img [ngStyle]="{'width': hoth.diameter + 'px'}" class="planet" src="../../../assets/Hoth.png"
+                  alt="hoth">
+          </div>
+          <div class="endor">
+              <img [ngStyle]="{'width': hoth.diameter + 'px'}" class="planet" src="../../../assets/Endor.png"
+                  alt="endor">
+          </div>
+      
+          <div class="tatooine">
+              <img routerLink="/play" [ngStyle]="{'width': tatooine.diameter + 'px'}" class="planet"
+                  src="../../../assets/tatooine.png" alt="tatooine">
+          </div>
 
-    <div class="tatooine">
-        <img routerLink="/play" (click)="test()" [ngStyle]="{'width': tatooine.diameter + 'px'}" class="planet"
-            src="../../../assets/tatooine.png" alt="tatooine">
-    </div>
+
+  </section>
+
     
 </div>
