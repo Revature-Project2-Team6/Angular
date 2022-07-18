@@ -1,28 +1,36 @@
+
 .card {
   color: whitesmoke;
-
-  width: 20rem;
+  margin-top: 2%;
+  width: 18rem;
   text-align: center;
   background-color: black;
   border-radius: 4px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
-  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
  
 }
 
-.card:hover {
-  transform: scale(1.05);
+.card-winner{
+  transform: scale(1.05); 
+  transition: 1s transform cubic-bezier(.155, 1.105, .295, 1.12), 1s box-shadow, 1s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
   box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
 }
 
+.card-loser{
+  transform: scale(0.8);
+  opacity: 45%;
+  transition: 1s transform cubic-bezier(.155, 1.105, .295, 1.12), 1s box-shadow, 1s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+
+}
+
 img {
-  height: 13vw;
+  height: 15vw;
   width: auto;
   align-items: center;
 }
 
 .list-group-item {
-  font-size: xx-large;
+  font-size: x-large;
   text-align: left;
   background-color: bisque;
 }
@@ -49,10 +57,10 @@ img {
 }
 
 #message {
-  font-size: xx-large;
-  margin-top: 4%;
+  font-size: x-large;
+  margin-top: 1%;
 }
 
 #button-div {
-  margin-top: 4%;
+  margin-top: 1%;
 }

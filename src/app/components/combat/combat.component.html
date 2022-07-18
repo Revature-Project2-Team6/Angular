@@ -26,7 +26,7 @@
         <p *ngIf="leveledUp" >You leveled up!</p>
       </div>
       <div class="col d-flex justify-content-center text-center">
-        <div class="card bf-dark shadow-lg" id="npcCard">
+        <div class="card bf-dark shadow-lg" id="npcCard" [ngClass]="{'card-winner': message === 'npc wins!', 'card-loser':message==='player wins!' || message=='draw'}">
           <img src={{npc.imageUrl}} alt="npcImage" class="card-img-top">
           <div class="card-body">
             <h3 class="card-title">{{npc.name}}</h3>
@@ -38,8 +38,8 @@
           </ul>
         </div>
       </div>
-      <div class="col d-flex justify-content-center text-center">
-        <div class="card shadow-lg" id="playerCard">
+      <div class="col d-flex justify-content-center text-center" >
+        <div class="card shadow-lg" id="playerCard" [ngClass]="{'card-winner': message === 'player wins!', 'card-loser':message==='npc wins!' || message=='draw'}">
           <img src={{player.imageUrl}} alt="playerImage" class="card-img-top">
           <div class="card-body">
             <h3 class="card-title">{{player.name}}</h3>
