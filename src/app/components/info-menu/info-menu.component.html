@@ -7,7 +7,9 @@
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
             <div *ngFor="let char of characters" class="col">
               <div class="card">
-                <img src="{{ char.imageUrl }}" alt="Image of {{ char.name }}" class="card-img-top">
+                <img src="{{ char.imageUrl }}" alt="Image of {{ char.name }}" class="card-img-top" style="height: 19vw;
+                width: 14vw;
+                align-items: center;">
                 <div class="list-group list-group-flush small">
                   <div class="list-group-item h5 mb-0">{{ char.name }}</div>
                   <div class="list-group-item">Species: {{ char.species.speciesName.charAt(0).toUpperCase() }}{{ char.species.speciesName.substr(1) }}</div>

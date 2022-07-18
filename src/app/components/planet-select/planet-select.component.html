@@ -9,16 +9,22 @@
             background-repeat: no-repeat;
             background-size: 100%;">
 
-<section class="card" *ngIf="!isCharSelected">
+  <section class="card" *ngIf="!isCharSelected">
     <h4 class="card-header mb-0">Choose a Character!</h4>
     <div class="card-body">
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-2">
         <div *ngFor="let char of characters" class="col">
           <div class="card">
-            <img src="{{ char.imageUrl }}" alt="Image of {{ char.name }}" class="card-img-top">
+            <div class="text-center">
+              <img src="{{ char.imageUrl }}" alt="Image of {{ char.name }}" class="card-img-top" style="height: 19vw;
+            width: 14vw;
+            align-items: center;">
+            </div>
+
             <div class="list-group list-group-flush small">
               <div class="list-group-item h5 mb-0">{{ char.name }}</div>
-              <div class="list-group-item">Species: {{ char.species.speciesName.charAt(0).toUpperCase() }}{{ char.species.speciesName.substr(1) }}</div>
+              <div class="list-group-item">Species: {{ char.species.speciesName.charAt(0).toUpperCase() }}{{
+                char.species.speciesName.substr(1) }}</div>
               <div class="list-group-item">Level {{ char.stats.level }} ({{ char.stats.experience }} EXP)</div>
               <div class="list-group-item">Health: {{ char.stats.health }} </div>
               <div class="list-group-item">
@@ -38,7 +44,7 @@
                 </div>
               </div>
               <div class="list-group-item character-actions">
-                <div class="btn-group btn-group-sm">
+                <div class="btn-group btn-group-md">
                   <!-- Add action buttons here -->
                   <a class="btn btn-outline-primary" (click)="selectChar(char)">Select</a>
                 </div>
@@ -51,23 +57,21 @@
   </section>
 
   <section *ngIf="isCharSelected">
-      
-          <div class="hoth">
-              <img [ngStyle]="{'width': hoth.diameter + 'px'}" class="planet" src="../../../assets/Hoth.png"
-                  alt="hoth">
-          </div>
-          <div class="endor">
-              <img [ngStyle]="{'width': hoth.diameter + 'px'}" class="planet" src="../../../assets/Endor.png"
-                  alt="endor">
-          </div>
-      
-          <div class="tatooine">
-              <img routerLink="/play" [ngStyle]="{'width': tatooine.diameter + 'px'}" class="planet"
-                  src="../../../assets/tatooine.png" alt="tatooine">
-          </div>
+
+    <div class="hoth">
+      <img [ngStyle]="{'width': hoth.diameter + 'px'}" class="planet" src="../../../assets/Hoth.png" alt="hoth">
+    </div>
+    <div class="endor">
+      <img [ngStyle]="{'width': hoth.diameter + 'px'}" class="planet" src="../../../assets/Endor.png" alt="endor">
+    </div>
+
+    <div class="tatooine">
+      <img routerLink="/play" [ngStyle]="{'width': tatooine.diameter + 'px'}" class="planet"
+        src="../../../assets/tatooine.png" alt="tatooine">
+    </div>
 
 
   </section>
 
-    
+
 </div>
