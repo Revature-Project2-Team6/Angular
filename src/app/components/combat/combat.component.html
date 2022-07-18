@@ -24,8 +24,8 @@
                        draw : winner === 'draw'}">
         {{message}}</p>
       </div>
-      <div class="col-lg-6 d-flex justify-content-center text-center">
-        <div class="card bf-dark" id="npcCard">
+      <div class="col d-flex justify-content-center text-center">
+        <div class="card bf-dark shadow-lg" id="npcCard">
           <img src="assets/{{npc.imageUrl}}.png" alt="npcImage" class="card-img-top">
           <div class="card-body">
             <h3 class="card-title">{{npc.name}}</h3>
@@ -37,8 +37,8 @@
           </ul>
         </div>
       </div>
-      <div class="col-lg-6 d-flex justify-content-center text-center">
-        <div class="card" id="playerCard">
+      <div class="col d-flex justify-content-center text-center">
+        <div class="card shadow-lg" id="playerCard">
           <img src="assets/{{player.imageUrl}}.png" alt="playerImage" class="card-img-top">
           <div class="card-body">
             <h3 class="card-title">{{player.name}}</h3>
